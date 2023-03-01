@@ -7,47 +7,47 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   height: 100vh;
-  background-color: #3d3d3d;
+  background-color: #373737;
 }
 
 .container {
   display: flex;
-  transform-style: preserve-3d;
   gap: 10px;
-  transform: rotateY(30deg) rotateX(10deg);
-  transition-delay: calc(0.25s * var(--j));
+  transform-style: preserve-3d;
+  transform: rotateX(30deg) rotateY(-30deg);
 }
 
 .container .text {
   position: relative;
   width: 100px;
   height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transform-style: preserve-3d;
-  transition: 2.5s ease-in-out;
+  transition: all 2.5s;
 }
 
 .container:hover .text {
-  transform: rotateX(-360deg);
+  transform: rotateX(360deg);
 }
 
-.container:hover .text:last-child {
-  transform: rotateX(630deg);
+.container:hover .text:first-child {
+  transform: rotateX(-450deg);
 }
 
-.container .text::before {
-  content: '';
+.container .text::after {
+  content: "";
   position: absolute;
+  background-color: #3d3d3d;
   width: 100%;
   height: 100%;
-  background: #373737;
-  transform-origin: left;
-  transform: rotateY(90deg) translateX(-50px);
+  transform: rotateY(90deg) translateZ(50px);
 }
 
-.container .text:last-child::before {
-  background: #29ab3c;
+.container .text:first-child::after {
+  background: linear-gradient(#29c040, #32ed4e);
 }
 
 .container .text span {
@@ -56,17 +56,14 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(#434343, #535353);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 4em;
-  color: #fff;
-  transform-style: preserve-3d;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
   transform: rotateX(calc(90deg * var(--i))) translateZ(50px);
+  color: #fff;
+  background: linear-gradient(#434343, #535353);
 }
 
-.container .text:last-child span {
+.container .text:first-child span {
   background: linear-gradient(#29c040, #32ed4e);
-  color: #333;
 }
